@@ -1,4 +1,7 @@
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<meta charset="UTF-8">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -88,7 +91,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a href="<c:url value='main'/>" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
             <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-            BANK
+            KGBANK
           </a>
 
           <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
@@ -128,13 +131,19 @@
     </div>
     <div class="px-3 py-2 border-bottom mb-3">
       <div class="container d-flex flex-wrap justify-content-center">
+      	${userId}님 반갑습니다.
         <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+          
         </form>
 
         <div class="text-end">
-          <button type="button" class="btn btn-light text-dark me-2">Login</button>
-          <button type="button" class="btn btn-primary">Sign-up</button>
+	    <c:if test="${userId==null}">
+        	<button type="button" class="btn btn-light text-dark me-2">Login</button>		
+		</c:if>
+    	<c:if test="${userId!=null}">
+    		<button type="button" class="btn btn-light text-dark me-2">Logout</button>
+		</c:if>
+		<button class="btn btn-primary" type="button" onclick='location.href="<c:url value='add_customer'/>"'>Sign-up</button>
         </div>
       </div>
     </div>

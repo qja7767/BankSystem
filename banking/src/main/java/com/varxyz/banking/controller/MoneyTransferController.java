@@ -32,7 +32,7 @@ public class MoneyTransferController {
 		String userId = (String)session.getAttribute("userId");
 		List<Account> accountList = accountService.getAccounts(userId);
 		request.setAttribute("accountList", accountList);
-
+		
 		return "account/withdraw";
 	}
 	
@@ -148,7 +148,7 @@ public class MoneyTransferController {
 		if(money > validMoney) {
 			System.out.println("잔액 초과 유효성검사 실패");
 			return "error";
-		}		
+		}
 		//비밀번호일치 유효성검사
 		if(!validPasswd.equals(passwd)) {
 			System.out.println("비밀번호 유효성검사 실패");
@@ -162,8 +162,6 @@ public class MoneyTransferController {
 		session.removeAttribute("depositAccNum");
 		session.removeAttribute("depositCustomerName");
 		session.removeAttribute("money");
-		
-		System.out.println("transfer 기능 성공");
 		
 		return "account/add_account";
 	}

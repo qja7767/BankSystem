@@ -83,7 +83,7 @@ public class AccountDao {
 		jdbcTemplate.update(sql2, money, depositAccountNum);
 	}
 	
-	//이자지급
+	//이자율 반영
 	public void saveInterest(double interestRate, String AccountNum) {
 		String sql = "UPDATE Account SET balance = balance * ? WHERE accountNum=?";
 		jdbcTemplate.update(sql, interestRate, AccountNum);

@@ -3,6 +3,7 @@ package com.varxyz.banking.service;
 import java.util.List;
 
 import com.varxyz.banking.domain.Account;
+import com.varxyz.banking.domain.Customer;
 
 public interface AccountService {
 	
